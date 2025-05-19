@@ -1,12 +1,20 @@
 package io.java.springbootstarter.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import org.hibernate.annotations.ManyToAny;
+
+@Entity
 public class Course {
 
+    @Id
     private String id;
     private String name;
     private String description;
     private String topicId;
 
+    @ManyToOne
     private Topic topic;
 
     public Course() {
