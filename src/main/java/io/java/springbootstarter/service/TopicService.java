@@ -16,6 +16,22 @@ public class TopicService {
 
     //returning topics list
     public List<Topic> getAllTopics() {
-        return topics;
+        return (List<Topic>) topicRepository.findAll();
+    }
+
+    public Topic getTopic(String id) {
+        return topicRepository.findById(id).orElse(null);
+    }
+
+    public void addTopic(Topic topic) {
+        topicRepository.save(topic);
+    }
+
+    public void updateTopic(String id, Topic topic) {
+        topicRepository.save(topic);
+    }
+
+    public void deleteTopic(String  id) {
+        topicRepository.deleteById(id);
     }
 }
